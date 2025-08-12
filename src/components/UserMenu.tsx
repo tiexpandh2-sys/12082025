@@ -67,7 +67,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
             <p className="text-xs text-gray-500">{user.email}</p>
             {user.role === 'admin' && (
               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 mt-1">
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 mt-1">
                 Administrador
               </span>
             )}
