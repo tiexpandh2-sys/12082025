@@ -120,5 +120,4 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
 };
 
 export default UserMenu;
-  )
 }
