@@ -12,7 +12,9 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
     name: '',
     type: 'Condomínio' as 'Condomínio' | 'Aberto' | 'Logístico',
+    location: '',
     size: 0,
+    areaSize: '',
     broker: '',
     status: 'Interesse' as 'Interesse' | 'Em Prospecção' | 'Prospectado' | 'Perdido',
     pricePerSquareMeter: 0,
@@ -34,7 +36,9 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
       setFormData({
         name: area.name,
         type: area.type,
+        location: area.location,
         size: area.size,
+        areaSize: area.areaSize,
         broker: area.broker,
         status: area.status,
         pricePerSquareMeter: area.pricePerSquareMeter,
@@ -131,6 +135,35 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
               <option value="Aberto">Aberto</option>
               <option value="Logístico">Logístico</option>
             </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Localização da Área *
+            </label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleInputChange}
+              required
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Tamanho da Área *
+            </label>
+            <input
+              type="text"
+              name="areaSize"
+              value={formData.areaSize}
+              onChange={handleInputChange}
+              required
+              placeholder="Ex: 15 hectares, 2 alqueires, etc."
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
           </div>
 
           <div>

@@ -2,7 +2,9 @@ export interface Area {
   id: string;
   name: string;
   type: 'Condomínio' | 'Aberto' | 'Logístico';
+  location: string;
   size: number; // m²
+  areaSize: string; // Tamanho da área (diferente de m²)
   broker: string;
   status: 'Interesse' | 'Em Prospecção' | 'Prospectado' | 'Perdido';
   pricePerSquareMeter: number;

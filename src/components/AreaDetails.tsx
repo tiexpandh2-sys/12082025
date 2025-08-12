@@ -66,7 +66,7 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
 
         <div className="p-6">
           {/* Basic Information */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
                 <MapPin className="h-5 w-5 text-gray-600 mr-2" />
@@ -75,6 +75,13 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
               <p className="text-lg font-semibold text-gray-900">{area.type}</p>
             </div>
 
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex items-center mb-2">
+                <MapPin className="h-5 w-5 text-gray-600 mr-2" />
+                <span className="text-sm font-medium text-gray-600">Localização</span>
+              </div>
+              <p className="text-lg font-semibold text-gray-900">{area.location}</p>
+            </div>
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
                 <User className="h-5 w-5 text-gray-600 mr-2" />
@@ -102,6 +109,10 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="border border-gray-200 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Tamanho da Área</p>
+                <p className="text-2xl font-bold text-gray-900">{area.areaSize}</p>
+              </div>
+              <div className="border border-gray-200 p-4 rounded-lg">
                 <p className="text-sm text-gray-600 mb-1">Área Total</p>
                 <p className="text-2xl font-bold text-gray-900">{formatArea(area.size)} m²</p>
               </div>
@@ -110,7 +121,7 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
                 <p className="text-2xl font-bold text-gray-900">{formatCurrency(area.pricePerSquareMeter)}</p>
               </div>
               <div className="border border-green-200 p-4 rounded-lg bg-green-50">
-                <p className="text-sm text-green-600 mb-1">Valor Total</p>
+                <p className="text-sm text-green-600 mb-1">Valor da Área</p>
                 <p className="text-2xl font-bold text-green-800">{formatCurrency(area.totalValue)}</p>
               </div>
             </div>

@@ -126,11 +126,18 @@ const AreasList: React.FC<AreasListProps> = ({ areas, onEdit, onDelete }) => {
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
+                  <p className="text-sm text-gray-600">Tamanho da Área</p>
+                  <p className="font-semibold text-gray-900">{area.areaSize}</p>
+                </div>
+                <div>
                   <p className="text-sm text-gray-600">Área</p>
                   <p className="font-semibold text-gray-900">{formatArea(area.size)} m²</p>
                 </div>
+              </div>
+
+              <div className="mb-4">
                 <div>
-                  <p className="text-sm text-gray-600">Valor Total</p>
+                  <p className="text-sm text-gray-600">Valor da Área</p>
                   <p className="font-semibold text-gray-900">{formatCurrency(area.totalValue)}</p>
                 </div>
               </div>

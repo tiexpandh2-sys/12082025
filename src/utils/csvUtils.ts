@@ -5,7 +5,9 @@ export const exportAreasToCSV = (areas: Area[]): string => {
     'id',
     'name',
     'type',
+    'location',
     'size',
+    'areaSize',
     'broker',
     'status',
     'pricePerSquareMeter',
@@ -26,7 +28,9 @@ export const exportAreasToCSV = (areas: Area[]): string => {
     area.id,
     area.name,
     area.type,
+    area.location,
     area.size,
+    area.areaSize,
     area.broker,
     area.status,
     area.pricePerSquareMeter,
@@ -115,7 +119,7 @@ export const importAreasFromCSV = (csvContent: string): Area[] => {
 
   const headers = parseCSVLine(lines[0]);
   const expectedHeaders = [
-    'id', 'name', 'type', 'size', 'broker', 'status', 'pricePerSquareMeter',
+    'id', 'name', 'type', 'location', 'size', 'areaSize', 'broker', 'status', 'pricePerSquareMeter',
     'totalValue', 'createdAt', 'updatedAt', 'nextAction', 'nextActionDate',
     'observations', 'attachments', 'visitaTecnica', 'levantamentoDocumental',
     'propostaApresentada', 'aprovacaoGestor'
@@ -146,7 +150,9 @@ export const importAreasFromCSV = (csvContent: string): Area[] => {
         id: getValueByHeader('id'),
         name: getValueByHeader('name'),
         type: getValueByHeader('type') as 'Condomínio' | 'Aberto' | 'Logístico',
+        location: getValueByHeader('location'),
         size: Number(getValueByHeader('size')),
+        areaSize: getValueByHeader('areaSize'),
         broker: getValueByHeader('broker'),
         status: getValueByHeader('status') as 'Interesse' | 'Em Prospecção' | 'Prospectado' | 'Perdido',
         pricePerSquareMeter: Number(getValueByHeader('pricePerSquareMeter')),
@@ -166,7 +172,7 @@ export const importAreasFromCSV = (csvContent: string): Area[] => {
       };
 
       // Validate required fields
-      if (!area.id || !area.name || !area.type || !area.broker || !area.status) {
+      if (!area.id || !area.name || !area.type || !area.location || !area.areaSize || !area.broker || !area.status) {
         throw new Error(`Linha ${i + 1}: campos obrigatórios ausentes`);
       }
 

@@ -42,11 +42,13 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
     const headers = [
       'Nome da Área',
       'Tipo',
+      'Localização',
+      'Tamanho da Área',
       'Tamanho (m²)',
       'Corretor',
       'Status',
       'Valor por m²',
-      'Valor Total da Área',
+      'Valor da Área',
       'Data de Cadastro',
       'Próxima Ação',
       'Data da Próxima Ação',
@@ -56,6 +58,8 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
     const csvData = filteredAreas.map(area => [
       area.name,
       area.type,
+      area.location,
+      area.areaSize,
       area.size,
       area.broker,
       area.status,
@@ -211,6 +215,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
             <Calendar className="h-8 w-8 text-purple-600" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Valor Total da Área</p>
+              <p className="text-sm font-medium text-gray-500">Valor da Área</p>
               <p className="text-2xl font-bold text-gray-900">{formatCurrency(totalValue)}</p>
             </div>
           </div>
@@ -305,6 +310,9 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
                   Tipo
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Localização
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Corretor
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -314,7 +322,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
                   Tamanho
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Valor Total da Área
+                  Valor da Área
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Data Cadastro
@@ -329,6 +337,9 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{area.type}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900">{area.location}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{area.broker}</div>
