@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, LogOut, Settings, Upload, Lock } from 'lucide-react';
+import { User, LogOut, Upload, Lock } from 'lucide-react';
 import { getCurrentUser, clearUserSession } from '../utils/auth';
 import LogoUpload from './auth/LogoUpload';
 import ChangePasswordForm from './auth/ChangePasswordForm';
@@ -103,8 +103,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
               <LogoUpload onLogoUpdate={handleLogoUploadComplete} />
             </div>
           )}
-        )
-        }
         </div>
       )}
 
@@ -120,4 +118,3 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
 };
 
 export default UserMenu;
-}
