@@ -121,7 +121,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             >
               <option value="">Todos</option>
               <option value="Interesse">Interesse</option>
@@ -136,7 +136,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             >
               <option value="">Todos</option>
               <option value="Condomínio">Condomínio</option>
@@ -152,7 +152,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
               value={filterBroker}
               onChange={(e) => setFilterBroker(e.target.value)}
               placeholder="Digite o nome"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             />
           </div>
 
@@ -162,7 +162,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             />
           </div>
 
@@ -172,7 +172,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             />
           </div>
         </div>
@@ -180,7 +180,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
         <div className="mt-4 flex justify-end">
           <button
             onClick={exportToCSV}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors"
           >
             <FileDown className="h-4 w-4 mr-2" />
             Exportar CSV
@@ -192,7 +192,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <Building2 className="h-8 w-8 text-blue-600" />
+            <Building2 className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Total de Áreas</p>
               <p className="text-2xl font-bold text-gray-900">{totalAreas}</p>
@@ -202,7 +202,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <TrendingUp className="h-8 w-8 text-green-600" />
+            <TrendingUp className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Área Total</p>
               <p className="text-2xl font-bold text-gray-900">{formatArea(totalSize)} m²</p>
@@ -212,7 +212,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <Calendar className="h-8 w-8 text-purple-600" />
+            <Calendar className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Valor Total da Área</p>
               <p className="text-sm font-medium text-gray-500">Valor da Área</p>
@@ -223,7 +223,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <Users className="h-8 w-8 text-orange-600" />
+            <Users className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Taxa de Sucesso</p>
               <p className="text-2xl font-bold text-gray-900">{successRate}%</p>
@@ -249,7 +249,7 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
                       <div
                         className={`h-2 rounded-full ${
                           status === 'Interesse' ? 'bg-yellow-500' :
-                          status === 'Em Prospecção' ? 'bg-blue-500' :
+                         status === 'Em Prospecção' ? 'bg-green-600' :
                           status === 'Prospectado' ? 'bg-green-500' :
                           'bg-red-500'
                         }`}
@@ -279,8 +279,8 @@ const Reports: React.FC<ReportsProps> = ({ areas, history }) => {
                       <div
                         className={`h-2 rounded-full ${
                           type === 'Condomínio' ? 'bg-purple-500' :
-                          type === 'Aberto' ? 'bg-blue-500' :
-                          'bg-orange-500'
+                         type === 'Aberto' ? 'bg-green-600' :
+                         'bg-green-700'
                         }`}
                         style={{ width: `${totalAreas > 0 ? (count / totalAreas) * 100 : 0}%` }}
                       ></div>

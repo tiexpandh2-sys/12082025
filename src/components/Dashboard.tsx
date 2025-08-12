@@ -50,7 +50,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <Building2 className="h-8 w-8 text-blue-600" />
+            <Building2 className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Total de Áreas</p>
               <p className="text-2xl font-bold text-gray-900">{totalAreas}</p>
@@ -60,7 +60,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <TrendingUp className="h-8 w-8 text-green-600" />
+            <TrendingUp className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Área Total</p>
               <p className="text-2xl font-bold text-gray-900">{formatArea(totalSize)} m²</p>
@@ -70,7 +70,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <CheckCircle className="h-8 w-8 text-green-600" />
+            <CheckCircle className="h-8 w-8 text-green-700" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Taxa de Sucesso</p>
               <p className="text-2xl font-bold text-gray-900">{successRate}%</p>
@@ -80,7 +80,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <AlertTriangle className="h-8 w-8 text-orange-600" />
+            <AlertTriangle className="h-8 w-8 text-green-600" />
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-500">Ações Atrasadas</p>
               <p className="text-2xl font-bold text-gray-900">{overdueAreas.length}</p>
@@ -106,7 +106,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
                   <div
                     className={`h-2 rounded-full ${
                       status === 'Interesse' ? 'bg-yellow-500' :
-                      status === 'Em Prospecção' ? 'bg-blue-500' :
+                     status === 'Em Prospecção' ? 'bg-green-600' :
                       status === 'Prospectado' ? 'bg-green-500' :
                       'bg-red-500'
                     }`}
@@ -128,7 +128,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
             <h3 className="text-lg leading-6 font-medium text-gray-900 flex items-center">
-              <AlertTriangle className="h-5 w-5 text-orange-600 mr-2" />
+              <AlertTriangle className="h-5 w-5 text-green-600 mr-2" />
               Ações em Atraso
             </h3>
           </div>
@@ -157,7 +157,7 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
             <h3 className="text-lg leading-6 font-medium text-gray-900 flex items-center">
-              <Calendar className="h-5 w-5 text-blue-600 mr-2" />
+              <Calendar className="h-5 w-5 text-green-700 mr-2" />
               Atividade Recente
             </h3>
           </div>
@@ -169,8 +169,8 @@ const Dashboard: React.FC<DashboardProps> = ({ areas, history }) => {
                 {history.slice(-5).reverse().map(entry => (
                   <div key={entry.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                     <div className="flex-shrink-0">
-                      <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Calendar className="h-4 w-4 text-blue-600" />
+                      <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <Calendar className="h-4 w-4 text-green-700" />
                       </div>
                     </div>
                     <div className="flex-1">

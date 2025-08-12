@@ -55,7 +55,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
         className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors"
       >
         <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
-          <User className="h-5 w-5 text-blue-600" />
+          <User className="h-5 w-5 text-green-700" />
         </div>
         <span className="text-sm font-medium">{user.name}</span>
       </button>
@@ -67,6 +67,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
             <p className="text-xs text-gray-500">{user.email}</p>
             {user.role === 'admin' && (
               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 mt-1">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 mt-1">
                 Administrador
               </span>
             )}

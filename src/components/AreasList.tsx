@@ -58,7 +58,7 @@ const AreasList: React.FC<AreasListProps> = ({ areas, onEdit, onDelete }) => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             >
               <option value="">Todos os status</option>
               <option value="Interesse">Interesse</option>
@@ -73,7 +73,7 @@ const AreasList: React.FC<AreasListProps> = ({ areas, onEdit, onDelete }) => {
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             >
               <option value="">Todos os tipos</option>
               <option value="Condomínio">Condomínio</option>
@@ -89,7 +89,7 @@ const AreasList: React.FC<AreasListProps> = ({ areas, onEdit, onDelete }) => {
               value={filterBroker}
               onChange={(e) => setFilterBroker(e.target.value)}
               placeholder="Digite o nome do corretor"
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
             />
           </div>
         </div>
@@ -158,14 +158,14 @@ const AreasList: React.FC<AreasListProps> = ({ areas, onEdit, onDelete }) => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => setSelectedArea(area)}
-                    className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                    className="p-2 text-gray-400 hover:text-green-700 transition-colors"
                     title="Ver detalhes"
                   >
                     <Eye className="h-4 w-4" />
                   </button>
                   <button
                     onClick={() => onEdit(area)}
-                    className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                    className="p-2 text-gray-400 hover:text-green-700 transition-colors"
                     title="Editar"
                   >
                     <Edit className="h-4 w-4" />

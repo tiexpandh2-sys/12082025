@@ -140,21 +140,21 @@ function App() {
                     className="h-8 w-auto"
                   />
                 ) : (
-                  <Building2 className="h-8 w-8 text-blue-600" />
+                  <Building2 className="h-8 w-8 text-green-700" />
                 )}
                 <h1 className="text-2xl font-bold text-gray-900">Prospecção de Loteamentos</h1>
               </div>
               <div className="flex items-center space-x-4">
                 <button
                   onClick={handleNewArea}
-                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Nova Área
                 </button>
                 <button
                   onClick={() => setShowDataManagement(true)}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors"
                 >
                   <Database className="h-4 w-4 mr-2" />
                   Gerenciar Dados
@@ -179,7 +179,7 @@ function App() {
                   onClick={() => setView(key as any)}
                   className={`flex items-center px-1 py-4 text-sm font-medium border-b-2 transition-colors ${
                     view === key
-                      ? 'border-blue-500 text-blue-600'
+                      ? 'border-green-600 text-green-700'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >

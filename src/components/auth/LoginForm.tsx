@@ -89,7 +89,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
                 className="h-16 w-auto mx-auto mb-4"
               />
             ) : (
-              <Building2 className="h-16 w-16 text-blue-600 mx-auto mb-4" />
+              <Building2 className="h-16 w-16 text-green-700 mx-auto mb-4" />
             )}
             <h1 className="text-2xl font-bold text-gray-900">Prospecção de Loteamentos</h1>
             <p className="text-gray-600 mt-2">Faça login para acessar o sistema</p>
@@ -115,7 +115,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
                 name="email"
                 value={credentials.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 transition-colors"
                 placeholder="seu@email.com"
                 disabled={isLoading}
               />
@@ -131,7 +131,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
                   name="password"
                   value={credentials.password}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 transition-colors"
                   placeholder="Sua senha"
                   disabled={isLoading}
                 />
@@ -149,7 +149,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-green-700 text-white py-3 px-4 rounded-lg hover:bg-green-800 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {isLoading ? (
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -166,7 +166,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
           <div className="mt-6 text-center space-y-2">
             <button
               onClick={onSwitchToForgotPassword}
-              className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+              className="text-green-700 hover:text-green-800 text-sm font-medium"
             >
               Esqueceu sua senha?
             </button>
@@ -174,7 +174,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onSw
               Não tem uma conta?{' '}
               <button
                 onClick={onSwitchToRegister}
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-green-700 hover:text-green-800 font-medium"
               >
                 Cadastre-se
               </button>

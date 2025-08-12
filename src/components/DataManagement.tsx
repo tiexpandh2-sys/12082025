@@ -118,7 +118,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="border border-gray-200 rounded-lg p-4">
                 <div className="flex items-center mb-3">
-                  <FileText className="h-6 w-6 text-blue-600 mr-2" />
+                  <FileText className="h-6 w-6 text-green-700 mr-2" />
                   <div>
                     <h4 className="font-medium text-gray-900">Áreas</h4>
                     <p className="text-sm text-gray-600">{areas.length} registro(s)</p>
@@ -126,7 +126,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
                 </div>
                 <button
                   onClick={handleExportAreas}
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                  className="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition-colors text-sm font-medium"
                 >
                   Exportar Áreas
                 </button>
@@ -134,7 +134,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
 
               <div className="border border-gray-200 rounded-lg p-4">
                 <div className="flex items-center mb-3">
-                  <History className="h-6 w-6 text-green-600 mr-2" />
+                  <History className="h-6 w-6 text-green-700 mr-2" />
                   <div>
                     <h4 className="font-medium text-gray-900">Histórico</h4>
                     <p className="text-sm text-gray-600">{history.length} registro(s)</p>
@@ -142,7 +142,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
                 </div>
                 <button
                   onClick={handleExportHistory}
-                  className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors text-sm font-medium"
+                  className="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition-colors text-sm font-medium"
                 >
                   Exportar Histórico
                 </button>
@@ -165,7 +165,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
               <select
                 value={importType}
                 onChange={(e) => setImportType(e.target.value as 'areas' | 'history')}
-                className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
                 disabled={isImporting}
               >
                 <option value="areas">Áreas</option>
@@ -192,7 +192,7 @@ const DataManagement: React.FC<DataManagementProps> = ({
                 <button
                   onClick={triggerFileInput}
                   disabled={isImporting}
-                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isImporting ? (
                     <>
@@ -232,8 +232,8 @@ const DataManagement: React.FC<DataManagementProps> = ({
 
           {/* Instructions */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h4 className="font-medium text-blue-900 mb-2">Instruções Importantes:</h4>
-            <ul className="text-sm text-blue-800 space-y-1">
+            <h4 className="font-medium text-green-800 mb-2">Instruções Importantes:</h4>
+            <ul className="text-sm text-green-700 space-y-1">
               <li>• Os arquivos devem estar no formato CSV com codificação UTF-8</li>
               <li>• Ao importar áreas, os dados existentes serão substituídos</li>
               <li>• Ao importar histórico, os dados existentes serão substituídos</li>
