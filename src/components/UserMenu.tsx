@@ -104,6 +104,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
               <LogoUpload onLogoUpdate={handleLogoUploadComplete} />
             </div>
           )}
+        )
+        }
         </div>
       )}
 
@@ -119,3 +121,5 @@ const UserMenu: React.FC<UserMenuProps> = ({ onLogout, onLogoUpdate }) => {
 };
 
 export default UserMenu;
+  )
+}
