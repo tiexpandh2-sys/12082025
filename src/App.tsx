@@ -7,6 +7,7 @@ import AreasList from './components/AreasList';
 import AreaForm from './components/AreaForm';
 import Reports from './components/Reports';
 import DataManagement from './components/DataManagement';
+import KMZManager from './components/KMZManager';
 import { Area, HistoryEntry } from './types';
 import { sampleData } from './data/sampleData';
 import { getCompanyLogo } from './utils/auth';
@@ -19,6 +20,7 @@ function App() {
   const [companyLogo, setCompanyLogo] = useState<string | null>(getCompanyLogo());
   const [authKey, setAuthKey] = useState(0);
   const [showDataManagement, setShowDataManagement] = useState(false);
+  const [showKMZManager, setShowKMZManager] = useState(false);
 
   useEffect(() => {
     // Load data from localStorage or use sample data
@@ -159,6 +161,13 @@ function App() {
                   <Database className="h-4 w-4 mr-2" />
                   Gerenciar Dados
                 </button>
+                <button
+                  onClick={() => setShowKMZManager(true)}
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors"
+                >
+                  <FileText className="h-4 w-4 mr-2" />
+                  Arquivos KMZ
+                </button>
                 <UserMenu onLogout={handleLogout} onLogoUpdate={handleLogoUpdate} />
               </div>
             </div>
@@ -219,6 +228,13 @@ function App() {
             onImportAreas={handleImportAreas}
             onImportHistory={handleImportHistory}
             onClose={() => setShowDataManagement(false)}
+          />
+        )}
+
+        {/* KMZ Manager Modal */}
+        {showKMZManager && (
+          <KMZManager
+            onClose={() => setShowKMZManager(false)}
           />
         )}
       </div>
