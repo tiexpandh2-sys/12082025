@@ -1,6 +1,6 @@
 import React from 'react';
 import { Area } from '../types';
-import { X, Edit, MapPin, User, Calendar, CheckCircle, Clock, DollarSign } from 'lucide-react';
+import { X, Edit, MapPin, User, Calendar, CheckCircle, Clock, DollarSign, Download } from 'lucide-react';
 
 interface AreaDetailsProps {
   area: Area;
@@ -35,6 +35,25 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
   ];
 
   const completedSteps = Object.values(area.checklist).filter(Boolean).length;
+  
+  const getKMZFiles = () => {
+    const kmzFiles = localStorage.getItem('loteamentos-kmz-files');
+    if (!kmzFiles) return [];
+    
+    const allFiles = JSON.parse(kmzFiles);
+    return allFiles.filter((file: any) => area.attachments.includes(file.id));
+  };
+  
+  const downloadKMZFile = (file: any) => {
+    const link = document.createElement('a');
+    link.href = file.data;
+    link.download = file.originalName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+  const attachedKMZFiles = getKMZFiles();
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -185,6 +204,43 @@ const AreaDetails: React.FC<AreaDetailsProps> = ({ area, onClose, onEdit }) => {
               </div>
             </div>
           </div>
+
+          {/* KMZ Files */}
+          {attachedKMZFiles.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                <MapPin className="h-5 w-5 mr-2" />
+                Arquivos KMZ do Google Earth
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {attachedKMZFiles.map((file: any) => (
+                  <div key={file.id} className="border border-green-200 bg-green-50 p-4 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-green-800 truncate">{file.name}</h4>
+                        <p className="text-sm text-green-600">{file.originalName}</p>
+                        <p className="text-xs text-green-500 mt-1">
+                          Upload: {new Date(file.uploadDate).toLocaleDateString('pt-BR')}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => downloadKMZFile(file)}
+                        className="ml-3 p-2 text-green-600 hover:text-green-700 hover:bg-green-100 rounded-full transition-colors"
+                        title="Download arquivo KMZ"
+                      >
+                        <Download className="h-5 w-5" />
+                      </button>
+                    </div>
+                    {file.description && (
+                      <p className="text-sm text-green-700 mt-2 bg-green-100 p-2 rounded">
+                        {file.description}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Observations */}
           {area.observations && (
