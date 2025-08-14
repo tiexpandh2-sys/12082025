@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Area } from '../types';
-import { Save, X, Upload, Trash2 } from 'lucide-react';
+import { Save, X, Upload, Trash2, MapPin } from 'lucide-react';
 
 interface AreaFormProps {
   area: Area | null;
@@ -30,6 +30,7 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
       aprovacaoGestor: false
     }
   });
+  const [availableKMZFiles, setAvailableKMZFiles] = useState<Array<{id: string, name: string}>>([]);
 
   useEffect(() => {
     if (area) {
@@ -49,6 +50,13 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
         attachments: area.attachments,
         checklist: area.checklist
       });
+    }
+    
+    // Load available KMZ files
+    const kmzFiles = localStorage.getItem('loteamentos-kmz-files');
+    if (kmzFiles) {
+      const files = JSON.parse(kmzFiles);
+      setAvailableKMZFiles(files.map((f: any) => ({ id: f.id, name: f.name })));
     }
   }, [area]);
 
@@ -74,6 +82,27 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
         [item]: !prev.checklist[item]
       }
     }));
+  };
+
+  const handleKMZFileSelect = (fileId: string) => {
+    if (!formData.attachments.includes(fileId)) {
+      setFormData(prev => ({
+        ...prev,
+        attachments: [...prev.attachments, fileId]
+      }));
+    }
+  };
+
+  const removeKMZFile = (fileId: string) => {
+    setFormData(prev => ({
+      ...prev,
+      attachments: prev.attachments.filter(id => id !== fileId)
+    }));
+  };
+
+  const getKMZFileName = (fileId: string) => {
+    const file = availableKMZFiles.find(f => f.id === fileId);
+    return file ? file.name : 'Arquivo não encontrado';
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -308,6 +337,71 @@ const AreaForm: React.FC<AreaFormProps> = ({ area, onSave, onCancel }) => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* KMZ Files */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-4">
+            Arquivos KMZ do Google Earth
+          </label>
+          
+          {availableKMZFiles.length > 0 ? (
+            <div className="space-y-4">
+              <div>
+                <select
+                  onChange={(e) => {
+                    if (e.target.value) {
+                      handleKMZFileSelect(e.target.value);
+                      e.target.value = '';
+                    }
+                  }}
+                  className="w-full border-gray-300 rounded-md shadow-sm focus:ring-green-600 focus:border-green-600"
+                >
+                  <option value="">Selecione um arquivo KMZ para anexar</option>
+                  {availableKMZFiles
+                    .filter(file => !formData.attachments.includes(file.id))
+                    .map(file => (
+                      <option key={file.id} value={file.id}>
+                        {file.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              
+              {formData.attachments.length > 0 && (
+                <div>
+                  <p className="text-sm font-medium text-gray-700 mb-2">Arquivos anexados:</p>
+                  <div className="space-y-2">
+                    {formData.attachments.map(fileId => (
+                      <div key={fileId} className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg p-3">
+                        <div className="flex items-center">
+                          <MapPin className="h-4 w-4 text-green-600 mr-2" />
+                          <span className="text-sm font-medium text-green-800">
+                            {getKMZFileName(fileId)}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeKMZFile(fileId)}
+                          className="text-red-600 hover:text-red-700 transition-colors"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <MapPin className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+              <p className="text-sm text-gray-500">Nenhum arquivo KMZ disponível</p>
+              <p className="text-xs text-gray-400 mt-1">
+                Use o botão "Arquivos KMZ" no cabeçalho para fazer upload de arquivos
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Actions */}
